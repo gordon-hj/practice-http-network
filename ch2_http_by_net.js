@@ -2,12 +2,9 @@ const net = require('net');
 
 const LINE_SEPARATOR = '\r\n'
 
-const socket = net.connect({
-	port: 80,
-	host: "localhost"
-});
+const socket = net.connect({port: 80, host: "localhost"});
 
-// setting encoding
+// set encoding
 socket.setEncoding('utf8');
 
 socket.on('connect', function () {
@@ -87,18 +84,3 @@ let parseHttpProtocol = protocol => {
         statusMessage: fields[2],   
     }
 }
-
-/*
-0 : HTTP/1.1 200 OK
-1 : X-Powered-By: Express
-2 : Content-Type: text/plain; charset=utf-8
-3 : Date: Sun, 15 Jan 2023 08:24:41 GMT
-4 : Connection: close
-5 : Transfer-Encoding: chunked
-6 :
-7 : 13
-8 : Smallest Get Server
-9 : 0
-10 :
-11 :
-*/
